@@ -2,7 +2,7 @@
   "name": "nest_user_api",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Rodrigo Cordeiro <rodrigomendoncca@gmail.com> (http://rodcordeiro.com.br)",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

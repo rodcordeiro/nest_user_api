@@ -7,6 +7,9 @@ export class LoggerMiddleware implements NestMiddleware {
     console.log({
       Route: req.url,
       Method: req.method,
+      // body: req.body,
+      // query: req.query,
+      // params: req.params,
     });
     next();
   }

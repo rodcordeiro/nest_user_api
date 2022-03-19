@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from '../src/controllers/app.controller';
-import { AppService } from '../src/services/app.service';
+import { version } from '../package.json';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -8,15 +8,17 @@ describe('AppController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [AppController],
-      providers: [AppService],
+      providers: [],
     }).compile();
 
     appController = app.get<AppController>(AppController);
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return API version', () => {
+      const result = appController.validatesAPIHealth();
+      console.log({ result, version });
+      expect(result).toEqual({ version });
     });
   });
 });

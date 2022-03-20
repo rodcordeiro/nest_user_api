@@ -19,7 +19,7 @@
             igual a “meegu”
     - [x] Buscar todos usuários
     - [x] Buscar um único usuário pelo ID dele
-- [ ] Escrever um README com uma breve descrição sobre o projeto e como iniciá-lo.
+- [x] Escrever um README com uma breve descrição sobre o projeto e como iniciá-lo.
 
 <!-- Adicionais -->
 - [ ] Armazenamento dos dados em uma base MySQL utilizando o docker-compose.

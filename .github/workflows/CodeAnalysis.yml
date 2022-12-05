@@ -65,8 +65,12 @@ jobs:
         uses: apisec-inc/ethicalcheck-action@v1.0.6
         with:
           # The Open API Specification or public Postman collection URL.
-          oas-url: ./assets/requests.json
+          oas-url: https://raw.githubusercontent.com/rodcordeiro/nest_user_api/main/assets/requests.json
           # The email address to which the API penetration test report will be sent.
           email: rodrigomendoncca@gmail.com
           # The path to the sarif format result file
-#           sarif-result-file: # optional, default is 
+          sarif-result-file: "ethicalcheck-results.sarif"
+      - name: upload sarif file to repository
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ./ethicalcheck-results.sarif

@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -55,3 +55,18 @@ jobs:
       - run: yarn
       - run: yarn build
       - run: yarn test
+  validatesecurity:
+    name: Validate security
+    runs-on: ubuntu-latest
+    steps:
+      - name: EthicalCheck
+        # You may pin to the exact commit or the version.
+        # uses: apisec-inc/ethicalcheck-action@6538d51caea53470bf8018e21f93414a70026f46
+        uses: apisec-inc/ethicalcheck-action@v1.0.6
+        with:
+          # The Open API Specification or public Postman collection URL.
+          oas-url: ./assets/requests.json
+          # The email address to which the API penetration test report will be sent.
+          email: rodrigomendoncca@gmail.com
+          # The path to the sarif format result file
+#           sarif-result-file: # optional, default is 

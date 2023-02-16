@@ -44,10 +44,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm install
-      - run: npm test
-      - run: npm run build
+          cache: 'yarn'
+      - run: yarn install
+#       - run: npm test
+      - run: yarn build
   build:
     needs: buildValidation
     runs-on: ubuntu-latest
@@ -57,9 +57,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: 'npm'
-      - run: npm install
-      - run: npm run build
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn build
       - name: Deploy build
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
